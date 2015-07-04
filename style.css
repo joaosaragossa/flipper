@@ -1,0 +1,92 @@
+*,
+*:before,
+*:after {
+  border: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #000;
+  font: 1vw 'Open Sans', sans-serif;
+}
+
+.logo {
+  text-align: center;
+  color: #36f;
+  font: 5em 'Bangers', cursive;
+  font-weight: normal;
+  letter-spacing: .5em;
+  margin-top: 1vw;
+  text-shadow: .02em .02em 0 #fff, .04em .04em 0 #ccc, .06em .06em 0 #999, .08em .08em 0 #666, .10em .10em 0 #333;
+}
+
+.tela {
+  background-color: #333;
+  border-radius: 1vw;
+  box-shadow: 0 0 2vw #333, inset .5vw .5vw 0 #222, inset -.5vw -.5vw 0 #222;
+  height: 23vw;
+  margin: 1vw auto;
+  max-width: calc(100% - 50vw);
+  position: relative;
+}
+
+#ponto {
+  background-color: #36f;
+  border-radius: 50%;
+  box-shadow: 0 0 .5vw #666;
+  height: 2vw;
+  margin: 15px;
+  position: absolute;
+  width: 2vw;
+}
+
+.control {
+  /*background-color: #333;*/
+  margin: 0 auto;
+  width: 16vw;
+}
+
+.control .button {
+  background-color: #ccc;
+  border-radius: 50%;
+  box-shadow: .2vw .2vw 0 #000;
+  cursor: pointer;
+  font-size: 0;
+  margin: .5vw;
+  padding: 1vw;
+}
+
+.control .button:hover {
+  background-color: #36f;
+  color: #fff;
+}
+
+.control .button:before {
+  font-size: 1vw;
+}
+
+.control .button.top-left {
+  -webkit-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
+.control .button.top-right {
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.control .button.bottom-left {
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.control .button.bottom-right {
+  -webkit-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
