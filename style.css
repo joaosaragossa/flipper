@@ -34,8 +34,9 @@ body {
 
 #ponto {
   background-color: #36f;
+  border: 1px solid #25e;
   border-radius: 50%;
-  box-shadow: 0 0 .5vw #666;
+  box-shadow: 0 0 1vw #36f;
   height: 2vw;
   margin: 15px;
   position: absolute;
