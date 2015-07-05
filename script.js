@@ -32,10 +32,10 @@ var keys = [];
 
 // Posicionar ponto no centro da tela
 
-var centroTop = (50/100) * tela.offsetHeight - (ponto.offsetHeight/2) - 15 + 'px';
+var centroTop  = (50/100) * tela.offsetHeight - (ponto.offsetHeight/2) - 15 + 'px';
 var centroLeft = (50/100) * tela.offsetWidth - (ponto.offsetWidth/2) - 15 + 'px';
 
-ponto.style.top = centroTop;
+ponto.style.top  = centroTop;
 ponto.style.left = centroLeft;
 
 function stop() {
@@ -379,10 +379,7 @@ function keysReleased(e) {
     keys[e.keyCode] = false;
 }
 
-// keyControl();
-
-// window.addEventListener("keydown", stop);
+window.addEventListener("keydown", stop);
 window.addEventListener("keydown", keyCall);
 window.addEventListener("keyup", keysReleased);
 window.addEventListener("keyup", stop);
-// window.addEventListener("onkeydown", function(){keyControl(event)});
