@@ -28,6 +28,8 @@ var cima     = (50/100) * tela.offsetHeight - ponto.offsetHeight;
 var esquerda = (50/100) * tela.offsetWidth - ponto.offsetWidth;
 var direita  = (50/100) * tela.offsetWidth - ponto.offsetWidth;
 
+var keys = [];
+
 // Posicionar ponto no centro da tela
 
 var centroTop = (50/100) * tela.offsetHeight - (ponto.offsetHeight/2) - 15 + 'px';
@@ -248,3 +250,139 @@ arrowBottomRight.addEventListener("mouseover", toBottomRight);
 arrowBottomRight.addEventListener("mouseout", stop);
 
 arrowCenter.addEventListener("mouseover", toCenter);
+
+// Controle pelas teclas do teclado
+
+function keyCall(e) {
+
+  keys[e.keyCode] = true;
+
+  // console.log(e.keyCode);
+
+  if (e.keyCode == 32) {
+    clearInterval(interval);
+    toCenter();
+  }
+
+  if (e.keyCode == 37) {
+    if (esquerda < 1) {
+      esquerda = 0;
+    } else {
+      esquerda = esquerda - 1;
+    }
+
+    ponto.style.left = esquerda + 'px';
+  }
+  if (e.keyCode == 38) {
+    if (cima < 1) {
+      cima = 0;
+    } else {
+      cima = cima - 1;
+    }
+
+    ponto.style.top = cima + 'px';
+  }
+  if (e.keyCode == 39) {
+    if (esquerda > tela.offsetWidth - ponto.offsetWidth - 30) {
+      esquerda = tela.offsetWidth - ponto.offsetWidth - 30;
+    } else {
+      esquerda = esquerda + 1;
+    }
+
+    ponto.style.left = esquerda + 'px';
+  }
+  if (e.keyCode == 40) {
+    if (cima > tela.offsetHeight - ponto.offsetHeight - 30) {
+      cima = tela.offsetHeight - 60;
+    } else {
+      cima = cima + 1;
+    }
+
+    ponto.style.top = cima + 'px';
+  }
+
+  if (keys[37] && keys[38]) {
+    if (cima < 1) {
+      cima = 0;
+    } else {
+      cima = cima - 1;
+    }
+
+    ponto.style.top = cima + 'px';
+
+    if (esquerda < 1) {
+      esquerda = 0;
+    } else {
+      esquerda = esquerda - 1;
+    }
+
+    ponto.style.left = esquerda + 'px';
+  }
+
+  if (keys[38] && keys[39]) {
+    if (cima < 1) {
+      cima = 0;
+    } else {
+      cima = cima - 1;
+    }
+
+    ponto.style.top = cima + 'px';
+
+    if (esquerda > tela.offsetWidth - ponto.offsetWidth - 30) {
+      esquerda = tela.offsetWidth - ponto.offsetWidth - 30;
+    } else {
+      esquerda = esquerda + 1;
+    }
+
+    ponto.style.left = esquerda + 'px';
+  }
+
+  if (keys[37] && keys[40]) {
+    if (cima > tela.offsetHeight - ponto.offsetHeight - 30) {
+      cima = tela.offsetHeight - 60;
+    } else {
+      cima = cima + 1;
+    }
+
+    ponto.style.top = cima + 'px';
+
+    if (esquerda < 1) {
+      esquerda = 0;
+    } else {
+      esquerda = esquerda - 1;
+    }
+
+    ponto.style.left = esquerda + 'px';
+  }
+
+  if (keys[39] && keys[40]) {
+    if (cima > tela.offsetHeight - ponto.offsetHeight - 30) {
+      cima = tela.offsetHeight - 60;
+    } else {
+      cima = cima + 1;
+    }
+
+    ponto.style.top = cima + 'px';
+
+    if (esquerda > tela.offsetWidth - ponto.offsetWidth - 30) {
+      esquerda = tela.offsetWidth - ponto.offsetWidth - 30;
+    } else {
+      esquerda = esquerda + 1;
+    }
+
+    ponto.style.left = esquerda + 'px';
+  }
+}
+
+function keysReleased(e) {
+    // mark keys that were released
+    keys[e.keyCode] = false;
+}
+
+// keyControl();
+
+// window.addEventListener("keydown", stop);
+window.addEventListener("keydown", keyCall);
+window.addEventListener("keyup", keysReleased);
+window.addEventListener("keyup", stop);
+// window.addEventListener("onkeydown", function(){keyControl(event)});
